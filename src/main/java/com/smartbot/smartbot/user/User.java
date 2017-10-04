@@ -21,7 +21,7 @@ import com.smartbot.smartbot.order.Order;;
 
 @Entity
 @Table(name = "users")
-@Where(clause="deleted='false'")
+@Where(clause = "deleted='false'")
 public class User {
 
   @Id
@@ -32,13 +32,13 @@ public class User {
   private String name;
   @Enumerated(EnumType.STRING)
   private Title title;
-  @Column(name="first_name")
+  @Column(name = "first_name")
   private String firstName;
-  @Column(name="last_name")
+  @Column(name = "last_name")
   private String lastName;
-  @Column(name="image_url")
+  @Column(name = "image_url")
   private String imageUrl;
-  @Column(nullable = false, columnDefinition="boolean default false")
+  @Column(nullable = false, columnDefinition = "boolean default false")
   private String deleted;
 
   @OneToMany
@@ -54,10 +54,10 @@ public class User {
 
   public void setTitle(Title title) {
     this.title = title;
-  } 
+  }
 
   public String getName() {
-    return this.firstName+ " " +this.lastName;
+    return this.firstName + " " + this.lastName;
   }
 
   public String getFirstName() {
@@ -67,6 +67,7 @@ public class User {
   public void setFirstName(String firstName) {
     this.firstName = firstName;
   }
+
   public String getLastName() {
     return this.lastName;
   }
@@ -74,6 +75,7 @@ public class User {
   public void setLastName(String lastName) {
     this.lastName = lastName;
   }
+
   public String getImageUrl() {
     return this.name;
   }
@@ -84,7 +86,7 @@ public class User {
 
   @Override
   public String toString() {
-    return "User [title = " + this.getTitle().toString() + ", first_name = " + this.getFirstName()  + 
-    ", last_name = " + this.getLastName();
+    return "User [title = " + this.getTitle().toString() + ", first_name = " + this.getFirstName() + ", last_name = "
+        + this.getLastName();
   }
 }
