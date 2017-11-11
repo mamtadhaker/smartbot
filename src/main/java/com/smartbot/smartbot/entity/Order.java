@@ -1,4 +1,4 @@
-package com.smartbot.smartbot.order;
+package com.smartbot.smartbot.entity;
 
 import java.util.UUID;
 
@@ -12,31 +12,25 @@ import javax.persistence.Table;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Where;
 
-import com.smartbot.smartbot.user.User;
-
 @Entity
 @Table(name = "orders")
 @Where(clause = "deleted='false'")
 public class Order {
 
-  @Id
-  @GeneratedValue(generator = "UUID")
-  @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
-  private UUID id;
-
+  
   @ManyToOne
   @JoinColumn(name = "user_id")
   private User user;
 
-  public UUID getId() {
-    return this.id;
-  }
+  // public UUID getId() {
+  //   return this.id;
+  // }
 
-  public User getUser() {
-    return this.user;
-  }
+  // public User getUser() {
+  //   return this.user;
+  // }
 
-  public void setUser(User user) {
-    this.user = user;
-  }
+  // public void setUser(User user) {
+  //   this.user = user;
+  // }
 }
